@@ -12,9 +12,9 @@ def ReadExistJson():
 
 # 请求输入
 def ReadInput(hash_list):
-    print("请输入诗名（无书名号）：")
+    print("请输入诗名（无书名号）（无请输入无题）：")
     title = input()
-    print("请输入作者：")
+    print("请输入作者（无请输入无名氏）：")
     author = input()
     print("选择操作：\n1.逐句输入\n2.一次性输入")
     choice = input()
@@ -32,8 +32,14 @@ def ReadInput(hash_list):
 
     shi_hash = hashlib.md5("{}{}{}{}".format(title, author, paragaphs[0], paragaphs[1]).encode(encoding='utf-8')).hexdigest()
     f_paragraphs = []
-    for i in range(0, len(paragaphs), 2):
-        f_paragraphs.append("{}，{}。".format(paragaphs[i], paragaphs[i+1]))
+    if len(paragaph) % 2 == 0:
+        for i in range(0, len(paragaphs), 2):
+            f_paragraphs.append("{}，{}。".format(paragaphs[i], paragaphs[i+1]))
+    elif len(paragaph) % 2 == 1:
+        paragaphs.append(" ")
+        for i in range(0, len(paragaphs), 2):
+            f_paragraphs.append("{}，{}。".format(paragaphs[i], paragaphs[i+1]))
+        f_paragraphs[-1] = f_paragraphs[-1][0:-3] + "。"
     if shi_hash in hash_list:
         print("重复提交\n")
         return  "0"

@@ -12,9 +12,9 @@ def ReadExistJson():
 
 # 请求输入
 def ReadInput(hash_list):
-    print("请输入词名（无书名号）（如果有词牌名，请用·符号隔开词牌名和词名，无空格，词牌名在前）：")
+    print("请输入词名（无书名号）（如果有词牌名，请用·符号隔开词牌名和词名，无空格，词牌名在前）（词牌名和题目都无无请输入无题，有一个就只输入一个）：")
     title = input()
-    print("请输入作者：")
+    print("请输入作者（无请输入无名氏）：")
     author = input()
     paragaph = None
     paragaphs = []
