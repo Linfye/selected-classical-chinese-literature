@@ -32,10 +32,10 @@ def ReadInput(hash_list):
 
     shi_hash = hashlib.md5("{}{}{}{}".format(title, author, paragaphs[0], paragaphs[1]).encode(encoding='utf-8')).hexdigest()
     f_paragraphs = []
-    if len(paragaph) % 2 == 0:
+    if len(paragaphs) % 2 == 0:
         for i in range(0, len(paragaphs), 2):
             f_paragraphs.append("{}，{}。".format(paragaphs[i], paragaphs[i+1]))
-    elif len(paragaph) % 2 == 1:
+    elif len(paragaphs) % 2 == 1:
         paragaphs.append(" ")
         for i in range(0, len(paragaphs), 2):
             f_paragraphs.append("{}，{}。".format(paragaphs[i], paragaphs[i+1]))
